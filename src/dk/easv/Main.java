@@ -1,7 +1,9 @@
 package dk.easv;
 
 import dk.easv.bll.NavigationSystem;
-import dk.easv.bll.TransportMethod;
+import dk.easv.bll.strategies.BusRouteStrategy;
+import dk.easv.bll.strategies.CarRouteStrategy;
+import dk.easv.bll.strategies.WalkingRouteStrategy;
 import dk.easv.model.Route;
 
 public class Main {
@@ -10,13 +12,13 @@ public class Main {
         String from = "Esbjerg City";
         String to = "Business Academy South West";
 
-        NavigationSystem nav = new NavigationSystem(TransportMethod.Bus);
+        NavigationSystem nav = new NavigationSystem(new BusRouteStrategy());
         Route busRoute = nav.findRoute(from, to);
 
-        nav.setTransportMethod(TransportMethod.Car);
+        nav.setRouteStrategy(new CarRouteStrategy());
         Route carRoute = nav.findRoute(from, to);
 
-        nav.setTransportMethod(TransportMethod.Walking);
+        nav.setRouteStrategy(new WalkingRouteStrategy());
         Route walkingRoute = nav.findRoute(from, to);
 
         printRoute(busRoute);
