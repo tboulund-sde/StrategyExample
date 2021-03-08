@@ -12,4 +12,7 @@ public class Route {
     public String[] getWaypoints() {
         return waypoints;
     }
+    public int getTimeInMinutes() {
+        return timeInMinutes;
+    }
 }

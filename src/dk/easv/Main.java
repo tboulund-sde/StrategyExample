@@ -19,14 +19,16 @@ public class Main {
         nav.setTransportMethod(TransportMethod.Walking);
         Route walkingRoute = nav.findRoute(from, to);
 
-        printRoute(busRoute);
-        printRoute(carRoute);
-        printRoute(walkingRoute);
+        printRoute("Bus", busRoute);
+        printRoute("Car", carRoute);
+        printRoute("Walking", walkingRoute);
     }
 
-    private static void printRoute(Route route) {
+    private static void printRoute(String type, Route route) {
+        System.out.println(type.toUpperCase() + " " + route.getTimeInMinutes() + " minutes");
         for(String waypoint : route.getWaypoints()) {
-            System.out.println(waypoint);
+            System.out.println(" - " + waypoint);
         }
+        System.out.println();
     }
 }
