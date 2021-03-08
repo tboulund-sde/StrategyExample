@@ -2,8 +2,10 @@ package dk.easv.model;
 
 public class Route {
     private String[] waypoints;
+    private int timeInMinutes;
 
-    public Route(String... waypoints) {
+    public Route(int timeInMinutes, String... waypoints) {
+        this.timeInMinutes = timeInMinutes;
         this.waypoints = waypoints;
     }
 
